@@ -1,0 +1,10 @@
+{% extends 'services/base.html'%}
+{% block count %}{{ services.count }}{% endblock %}
+{% block body %}
+    <h2>Services</h2>
+    <ul>
+        {% for service in services %}
+            <li> <a href="{% url 'service' service.id %}"> {{ service.title }} </a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}
