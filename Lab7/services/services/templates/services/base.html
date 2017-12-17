@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="/static/css/bootstrap.css" rel="stylesheet">
+
+<title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="top-bar">
+        <section class="top-bar-section">
+            <ul class="right">
+                {% if username %}
+                    <li><a href="/logout/">Выйти ({{ username }})</a></li>
+                {% else %}
+                    <li><a href="/login/">Войти</a></li>
+                {% endif %}
+            </ul>
+        </section>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h1><a href="/"> Services </a></h1>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <h2>Menu</h2>
+        <ul class="list-group">
+            <li class="list-group-item">Services
+                <span class="badge">{% block count %}{% endblock %}</span>
+            </li>
+            <li class="list-group-item">Services
+                <span class="badge">25</span>
+            </li>
+            <li class="list-group-item">Popular services
+                <span class="badge">2</span>
+            </li>
+            <li class="list-group-item">New Services
+                <span class="badge">3</span>
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-9">
+        <div>{% block body %}{% endblock %}</div>
+    </div>
+
+</div>
+</body>
+</html>
