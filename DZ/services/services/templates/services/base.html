@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="/static/css/bootstrap.css" rel="stylesheet">
+    <link href="/static/css/igraysya.css" rel="stylesheet">
+    <script src="/static/js/createElement.js"></script>
+    <script src="/static/js/request.js"></script>
+    <script src="/static/js/ServiceList.js"></script>
+    <script src="/static/js/AddServicePopup.js"></script>
+    <script src="/static/js/getCsrf.js"></script>
+    <script src="/static/js/index.js"></script>
+    <body style="background-image: url(/static/img/4.jpg);background-position: center">
+    </body>
+
+<title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">SServices</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/">Home</a></li>
+                <li><a href="/services">Services</a></li>
+
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                {% if username %}
+                    <li role="presentation"><a href="/logout/">Выйти ({{ username }})</a></li>
+                {% else %}
+                    <li role="presentation"><a href="/login/">Войти</a></li>
+                {% endif %}
+            </ul>
+
+        </div>
+    </div>
+
+</nav>
+<div class="container">
+    <div class="col-lg-12 ">
+        <div>{% block body %}{% endblock %}</div>
+    </div>
+</div>
+<script src="/static/js/modals.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+{#<div class="container-fluid">#}
+{#    <div class="top-bar">#}
+{#        <section class="top-bar-section">#}
+{#            <ul class="right">#}
+{#                {% if username %}#}
+{#                    <li><a href="/logout/">Выйти ({{ username }})</a></li>#}
+{#                {% else %}#}
+{#                    <li><a href="/login/">Войти</a></li>#}
+{#                {% endif %}#}
+{#            </ul>#}
+{#        </section>#}
+{#    </div>#}
+{#    <div class="row">#}
+{#        <div class="col-md-12">#}
+{#            <h1><a href="/"> SServices </a></h1>#}
+{#        </div>#}
+{#    </div>#}
+{#    <div class="col-md-3">#}
+{#        <h1>Sosyao</h1>#}
+{#        <ul class="list-group">#}
+{#            <li class="list-group-item"> Services#}
+{#                <span class="badge">{{count.all}}</span>#}
+{#            </li>#}
+{#            <li class="list-group-item">Popular services#}
+{#                <span class="badge">{{count.top}}</span>#}
+{#            </li>#}
+{#        </ul>#}
+{#    </div>#}
+{#    <div class="col-md-9">#}
+{#        <div>{% block body %}{% endblock %}</div>#}
+{#    </div>#}

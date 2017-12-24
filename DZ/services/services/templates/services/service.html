@@ -1,0 +1,28 @@
+{% extends 'services/base.html' %}
+
+{% block title %}{{ service.title }}{% endblock %}
+{% block body %}
+    <h1>{{ service.title }}</h1>
+    <img class="card-img-top" src="/{{ service.image }}" alt="Card image cap">
+    <p>{{service.short_info}}</p>
+    <div class="card-block">
+    <p>Список заказов</p>
+    <p>
+    {% for order in orders %}
+                    <p>Пользователь :{{ order.user }}, Дата : {{ order.odate }}</p>
+
+
+
+                {% empty %}
+                    <p>Нет заказчиков</p>
+                {% endfor %}
+    </p>
+    </div>
+{#    <div class="card">#}
+{#        <div class="card-block">#}
+{#            <h1 class="card-title">{{ service.title }} </h1>#}
+{#            <p class="'card-title"> Инфо: {{ service.short_info }}</p>#}
+{#        </div>#}
+{#    </div>#}
+
+{% endblock %}
