@@ -1,0 +1,24 @@
+{% extends 'services/base.html' %}
+
+{% block title %}SServices{% endblock %}
+{% block body %}
+    <h1>Top-5 Services</h1>
+    <ul>
+                {% for service in services %}
+                    <div class="card col-sm-3">
+                        <img class="card-img-top" src={{ service.image }} alt="Card image cap">
+                        <div class="card-body">
+                            <p class="card-title">{{ service.title }}</p>
+                            <p class="card-text">{{ service.company }}</p>
+                        </div>
+                        <div class="card-body">
+                            <a class="btn btn-info" role="button" href="{% url 'service' service.id %}">More</a>
+                        </div>
+                    </div>
+
+
+                {% empty %}
+                    <li>Здесь нет услуг</li>
+                {% endfor %}
+            </ul>
+{% endblock %}
